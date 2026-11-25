@@ -1,0 +1,290 @@
+:root {
+  --bg-burgundy-deep: #1e050e;
+  --bg-burgundy: #380b1c;
+  --bg-burgundy-mid: #5a1630;
+  --dusty-rose: #a8546e;
+  --blush-pink: #f5cfd9;
+  --warm-cream: #fcf6f1;
+  --cream-card: #faf2ea;
+  --gold-accent: #dcb876;
+  --gold-light: #f4e2b8;
+  --ink-dark: #2c0f19;
+  --ink-muted: #704553;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-hand: 'Caveat', cursive;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: var(--bg-burgundy-deep);
+  color: var(--warm-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background:
+    radial-gradient(circle at 18% 14%, rgba(196, 108, 134, 0.28) 0%, transparent 44%),
+    radial-gradient(circle at 84% 22%, rgba(220, 184, 118, 0.14) 0%, transparent 38%),
+    radial-gradient(circle at 75% 84%, rgba(245, 207, 217, 0.14) 0%, transparent 48%),
+    radial-gradient(circle at 22% 82%, rgba(168, 84, 110, 0.2) 0%, transparent 45%),
+    linear-gradient(155deg, #1b040c 0%, #360a1b 42%, #591630 76%, #772844 100%);
+  background-attachment: fixed;
+}
+
+#root {
+  min-height: 100dvh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+/* Velvet love-letter glass card */
+.love-card {
+  position: relative;
+  border-radius: 26px;
+  border: 1px solid rgba(244, 226, 184, 0.24);
+  background: linear-gradient(
+    155deg,
+    rgba(252, 246, 241, 0.09) 0%,
+    rgba(168, 84, 110, 0.11) 52%,
+    rgba(30, 5, 14, 0.34) 100%
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 24px 60px rgba(10, 2, 5, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(220, 184, 118, 0.12);
+}
+
+/* Primary romantic glass button */
+.btn-romantic {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 48px;
+  padding: 0.88rem 1.95rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(244, 226, 184, 0.46);
+  background: linear-gradient(135deg, rgba(252, 246, 241, 0.18) 0%, rgba(245, 207, 217, 0.13) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--warm-cream);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  cursor: pointer;
+  box-shadow:
+    0 12px 32px rgba(12, 2, 6, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease;
+  user-select: none;
+  overflow: hidden;
+}
+
+.btn-romantic::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 100%
+  );
+  transition: left 0.65s ease;
+  pointer-events: none;
+}
+
+.btn-romantic:hover::after {
+  left: 140%;
+}
+
+.btn-romantic:hover {
+  transform: translateY(-2px);
+  border-color: rgba(244, 226, 184, 0.85);
+  background: linear-gradient(135deg, rgba(252, 246, 241, 0.26) 0%, rgba(245, 207, 217, 0.22) 100%);
+  box-shadow:
+    0 16px 38px rgba(12, 2, 6, 0.52),
+    0 0 26px rgba(220, 184, 118, 0.26);
+}
+
+.btn-romantic:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.btn-romantic-cream {
+  background: linear-gradient(135deg, #fffaf6 0%, #f5dfe6 100%);
+  color: var(--ink-dark);
+  border-color: rgba(220, 184, 118, 0.72);
+  font-weight: 600;
+  box-shadow:
+    0 14px 36px rgba(12, 2, 6, 0.48),
+    0 0 28px rgba(245, 207, 217, 0.26);
+}
+
+.btn-romantic-cream::after {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+}
+
+.btn-romantic-cream:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #fae9ef 100%);
+  border-color: var(--gold-accent);
+  box-shadow:
+    0 18px 42px rgba(12, 2, 6, 0.54),
+    0 0 34px rgba(220, 184, 118, 0.38);
+}
+
+/* Shimmer for Princettaa name */
+.name-highlight {
+  background: linear-gradient(
+    115deg,
+    #fff9f3 0%,
+    #f4e2b8 24%,
+    #f7c5d3 50%,
+    #f4e2b8 76%,
+    #fff9f3 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-gold 5.5s ease-in-out infinite;
+  filter: drop-shadow(0 6px 26px rgba(220, 184, 118, 0.42));
+}
+
+@keyframes shimmer-gold {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.82);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.88);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.55;
+  }
+  85% {
+    opacity: 0.38;
+  }
+  100% {
+    transform: translateY(-106vh) translateX(var(--drift, 18px)) scale(1.12);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.07);
+  }
+}
+
+@keyframes gift-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-0.7deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(0.7deg);
+  }
+}
+
+.gift-float-idle {
+  animation: gift-float 3.8s ease-in-out infinite;
+}
+
+.polaroid-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+  padding: 8px 2px 14px;
+}
+
+@media (min-width: 640px) {
+  .polaroid-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(30, 5, 14, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(220, 184, 118, 0.38);
+  border-radius: 9999px;
+}
