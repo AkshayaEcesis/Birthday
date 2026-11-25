@@ -6,12 +6,14 @@ import AmbientBackdrop from './components/AmbientBackdrop';
 import MusicPlayer from './components/MusicPlayer';
 import OpeningEnvelopeScreen from './components/OpeningEnvelopeScreen';
 import StoryScreen from './components/StoryScreen';
+import LoveReasonsScreen from './components/LoveReasonsScreen';
+import WishStarsScreen from './components/WishStarsScreen';
 import GiftRevealScreen from './components/GiftRevealScreen';
 import PhotoGalleryScreen from './components/PhotoGalleryScreen';
 import FinalBirthdayScreen from './components/FinalBirthdayScreen';
 
 export default function App() {
-  // Stages: 'opening' | 'story' | 'gift' | 'gallery' | 'finale'
+  // Stages: 'opening' | 'story' | 'reasons' | 'stars' | 'gift' | 'gallery' | 'finale'
   const [stage, setStage] = useState('opening');
   const [storyIndex, setStoryIndex] = useState(0);
   const [journeyKey, setJourneyKey] = useState(0);
@@ -33,7 +35,7 @@ export default function App() {
     if (storyIndex < STORY_MESSAGES.length - 1) {
       setStoryIndex((prev) => prev + 1);
     } else {
-      setStage('gift');
+      setStage('reasons');
     }
   };
 
@@ -75,6 +77,20 @@ export default function App() {
           />
         )}
 
+        {stage === 'reasons' && (
+          <LoveReasonsScreen
+            key={`reasons-${journeyKey}`}
+            onNext={() => setStage('stars')}
+          />
+        )}
+
+        {stage === 'stars' && (
+          <WishStarsScreen
+            key={`stars-${journeyKey}`}
+            onNext={() => setStage('gift')}
+          />
+        )}
+
         {stage === 'gift' && (
           <GiftRevealScreen
             key={`gift-${journeyKey}`}
@@ -100,4 +116,3 @@ export default function App() {
     </main>
   );
 }
-

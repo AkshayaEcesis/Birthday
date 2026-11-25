@@ -76,6 +76,94 @@ export const FINAL_SCREEN = {
   galleryButton: 'View photos again',
 };
 
+export const LOVE_REASONS_SCREEN = {
+  badge: 'From My Heart',
+  heading: 'A few reasons why you are my favourite one',
+  hint: 'Tap each card to open it',
+  continueButton: 'One more sky to light up ✨',
+  cards: [
+    {
+      id: 'reason-1',
+      label: 'Your Smile',
+      note: 'The second you smile, my whole day softens and everything in my world feels right again.',
+    },
+    {
+      id: 'reason-2',
+      label: 'Your Voice',
+      note: 'Even on my loudest, hardest days, just hearing your voice feels like coming straight home.',
+    },
+    {
+      id: 'reason-3',
+      label: 'Your Heart',
+      note: 'You care so gently and love so deeply — I notice every little thing you do for us.',
+    },
+    {
+      id: 'reason-4',
+      label: 'Always You',
+      note: 'Out of every place and every lifetime, my heart will always choose you. I love you.',
+    },
+  ],
+};
+
+export const WISH_STARS_SCREEN = {
+  badge: 'Written In The Stars',
+  heading: 'Tap each glowing star to light up our heart',
+  completedHeading: 'Every star led me right to you. ♡',
+  continueButton: 'Open your birthday gift 🎁',
+  stars: [
+    {
+      id: 'star-1',
+      x: 50,
+      y: 35,
+      title: 'First Spark',
+      whisper: 'Every wish I quietly make somehow always has your name in it.',
+    },
+    {
+      id: 'star-2',
+      x: 24,
+      y: 22,
+      title: 'My Calm',
+      whisper: 'You are the peace I look for at the end of every single day.',
+    },
+    {
+      id: 'star-3',
+      x: 18,
+      y: 54,
+      title: 'Our Moments',
+      whisper: 'My favourite rides, my favourite calls, my favourite laughs — all with you.',
+    },
+    {
+      id: 'star-4',
+      x: 50,
+      y: 84,
+      title: 'My Home',
+      whisper: 'No matter how many miles lie between us, my heart lives right beside yours.',
+    },
+    {
+      id: 'star-5',
+      x: 82,
+      y: 54,
+      title: 'My Forever',
+      whisper: 'Today and every tomorrow, you are my favourite one. I love you endlessly.',
+    },
+    {
+      id: 'star-6',
+      x: 76,
+      y: 22,
+      title: 'Always Us',
+      whisper: 'Happy birthday in advance to my whole heart — now unwrap what is waiting. ♡',
+    },
+  ],
+};
+
+export const LOVE_WHISPERS = [
+  'You are so deeply loved today and every day. ♡',
+  'Sending you the biggest birthday hug & kiss right now! 💕',
+  'My favourite person in the whole wide world — I love you! ✨',
+  'Thank you for being the best part of my life. ♡',
+  'Forever proud of you, forever yours. ❤️',
+];
+
 /**
  * Photos placed in `public/photos/`.
  * Paths start with `/photos/...` so they work seamlessly in Vite dev and Vercel production builds.

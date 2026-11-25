@@ -32,7 +32,7 @@ function PolaroidPlaceholder({ label, index }) {
   );
 }
 
-function PolaroidCard({ photo, index, isVisible, onSelect }) {
+function PolaroidCard({ photo, index, isVisible, isLiked, onToggleLike, onSelect }) {
   const [imgError, setImgError] = useState(false);
   const useWashiTape = !photo.isFinal && index % 2 === 1;
 
@@ -120,6 +120,7 @@ function PolaroidCard({ photo, index, isVisible, onSelect }) {
       {/* Photo Frame */}
       <div
         style={{
+          position: 'relative',
           width: '100%',
           aspectRatio: photo.isFinal ? '4 / 4.35' : '4 / 4.7',
           overflow: 'hidden',
@@ -127,6 +128,37 @@ function PolaroidCard({ photo, index, isVisible, onSelect }) {
           backgroundColor: '#EADAD2',
         }}
       >
+        {/* Heart React Pill */}
+        {!imgError && (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggleLike(photo.id);
+            }}
+            aria-label={isLiked ? 'Remove heart' : 'Love this memory'}
+            style={{
+              position: 'absolute',
+              right: '6px',
+              bottom: '6px',
+              zIndex: 4,
+              width: '28px',
+              height: '28px',
+              borderRadius: '9999px',
+              border: '1px solid rgba(255,255,255,0.55)',
+              backgroundColor: isLiked ? 'rgba(145, 35, 73, 0.9)' : 'rgba(24, 5, 11, 0.45)',
+              backdropFilter: 'blur(6px)',
+              color: isLiked ? '#F5CFD9' : '#FCF6F1',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              padding: 0,
+            }}
+          >
+            <Heart size={13} fill={isLiked ? 'currentColor' : 'none'} />
+          </button>
+        )}
         {imgError || !photo.src ? (
           <PolaroidPlaceholder label={photo.src} index={index} />
         ) : (
@@ -191,6 +223,13 @@ export default function PhotoGalleryScreen({ onContinue }) {
   const hasPhotos = PHOTOS.length > 0;
   const [revealedCount, setRevealedCount] = useState(hasPhotos ? 1 : 0);
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [likedIds, setLikedIds] = useState([]);
+
+  const toggleLike = (id) => {
+    setLikedIds((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
 
   const allRevealed = !hasPhotos || revealedCount >= PHOTOS.length;
   const selectedPhoto = selectedIndex !== null ? PHOTOS[selectedIndex] : null;
@@ -360,6 +399,8 @@ export default function PhotoGalleryScreen({ onContinue }) {
                 photo={photo}
                 index={index}
                 isVisible={index < revealedCount}
+                isLiked={likedIds.includes(photo.id)}
+                onToggleLike={toggleLike}
                 onSelect={setSelectedIndex}
               />
             ))}
